@@ -1,41 +1,106 @@
+// body,html {
+//   height: 100%;
+// }
+
+
+// .notice {
+//   background-color: #38aef0;
+//   height: 30px;
+// }
+
+// .left-top-content {
+//   width: 300px;
+//   height: 90px;
+//   background-color: #253141;
+//   color: #ffffff;
+//   font-size: 16px;
+//   font-weight: bold;
+
+//     p {
+//       padding-left: 20px;
+//       padding-top: 30px;
+//       display: inline-block;
+//     }
+
+//     .fa {
+//       float: right;
+//       padding-right: 20px;
+//       padding-top: 30px
+//     }
+// }
+
+// .left-bottom-content {
+//   height: 100%;
+//   background-color: #2f3e51;
+//   color: white;
+//   width: 300px;
+
+//     .left-under-content__group-name {
+//       font-size: 15px;
+//       padding-top: 20px;
+
+//     }
+
+//     .left-under-content__group-message {
+//       font-size: 11px;
+//       padding-top: 5px;
+//       padding-bottom: 20px;
+//       padding-left: 20px;
+//     }
+// }
+
+
 body,html {
   height: 100%;
-  width: 300px;
 }
 
-.content {
-  height: 100%;
 
-    .main-content {
+.notice {
+  background-color: #38aef0;
+  height: 30px;
+  color: white;
+  text-align: center;
+}
+
+.contents {
+  .left-top-content {
+    width: 300px;
+    height: 90px;
+    background-color: #253141;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+
+      p {
+        padding-left: 20px;
+        padding-top: 30px;
+        display: inline-block;
+      }
+
+      .fa {
+        float: right;
+        padding-right: 20px;
+        padding-top: 30px
+      }
   }
 
-    .left-content {
-      width: 300px;
-      height: 90px;
-      background-color: #253141;
-      float: left;
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: bold;
+  .left-bottom-content {
+    height: 100vh;
+    background-color: #2f3e51;
+    color: white;
+    width: 300px;
 
-        p {
-          padding-left: 20px;
-          padding-top: 30px;
-          display: inline-block;
-        }
+      .left-under-content__group-name {
+        font-size: 15px;
+        padding-top: 20px;
 
-        .fa {
-          float: right;
-          padding-right: 20px;
-          padding-top: 30px
-        }
-    }
+      }
 
-    .left-under-content {
-      height: 100%;
-      background-color: #2f3e51;
-      color: white;
-    }
-
+      .left-under-content__group-message {
+        font-size: 11px;
+        padding-top: 5px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+      }
+  }
 }
-
