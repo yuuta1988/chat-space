@@ -1,28 +1,22 @@
-/ .notice
-
-
-/ .left-top-content
-/   %p yuuta
-/   %i.fa.fa-pen-square
-/   %i.fa.fa-cog
-
-/ .left-bottom-content
-/   %p.left-under-content__group-name ユーザネーム
-/   %p.left-under-content__group-message メッセージ
-/   %p.left-under-content__group-name ユーザネーム２
-/   %p.left-under-content__group-message メッセージ２
-
-
 .notice
-  %p　チャットグループが作成されました。
+  %p チャットグループが作成されました。
 
-.contents
-  .left-top-content
+.header.clearfix
+  .left-header
     %p yuuta
     %i.fa.fa-pen-square
     %i.fa.fa-cog
-  .left-bottom-content
-    %p.left-under-content__group-name ユーザネーム
-    %p.left-under-content__group-message メッセージ
-    %p.left-under-content__group-name ユーザネーム２
-    %p.left-under-content__group-message メッセージ２
+  .main-header
+    .main-header__group
+      .main-header__group-name サンプル
+      .main-header__group-message Members: yuuta
+    .main-header__box
+      %p Edit
+
+.contents
+  .left-content
+    %p.left-content__group-name ユーザネーム
+    %p.left-content__group-message メッセージ
+    %p.left-content__group-name ユーザネーム２
+    %p.left-content__group-message メッセージ２
+
