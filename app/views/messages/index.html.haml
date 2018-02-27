@@ -1,0 +1,45 @@
+.notice チャットグループが作成されました。
+
+.wrapper
+  .side-bar.clearfix
+    .header
+      %h3.header__name yuuta
+      %ul.header__lists
+        %li.list
+          %i.fa.fa-pen-square
+        %li.list
+          %i.fa.fa-cog
+    .groups
+      .group
+        %a
+          .group__name ABC
+          .group__message aaa
+      .group
+        %a
+          .group__name CCCC
+          .group__message メッセージありません
+  .chat.clearfix
+    .chat-header
+      .left-header
+        .left-header__title ああああ
+        %ul.left-header__members Member
+      .right-header
+        %a.right-header__button Edit
+    .chat-messages
+      .message
+        .upper-message.clearfix
+          .upper-message__user-name Yuuta
+          .upper-message__date 2018/02/12
+        .lower-message aaaa
+      .message
+        .upper-message.clearfix
+          .upper-message__user-name Sawamura
+          .upper-message__date 2018/02/00
+        .lower-message メッセージ
+    .chat-bottom
+      .from
+        %input.chat-bottom__from{:type=>:text, :name => :message ,:placeholder => " type a message"}
+        .chat-bottom__imgae
+          %i.fa.fa-image
+        .chat-bottom__box
+          %a Send
