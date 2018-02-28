@@ -17,7 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'pry-rails'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'devise'
 
 
