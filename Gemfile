@@ -18,6 +18,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'pry-rails'
 gem 'font-awesome-sass'
+gem 'devise'
 
 
 group :development, :test do
