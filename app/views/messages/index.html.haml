@@ -11,14 +11,14 @@
           = link_to edit_user_path(current_user) do
             = fa_icon 'cog', class: 'icon'
     .groups
-      .group
-        %a
-          .group__name ABC
-          .group__message aaa
-      .group
-        %a
-          .group__name CCCC
-          .group__message メッセージありません
+      - current_user.groups.each do |group|
+        .group
+          - current_user.groups.each do |group|
+            = link_to group_messages_path(group) do
+              .group__name
+                = group.name
+              .group__message
+                メッセージはまだありません。
   .chat.clearfix
     .chat-header
       .left-header
