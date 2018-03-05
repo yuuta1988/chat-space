@@ -7,12 +7,12 @@
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
-    .header__name {
+    &__name {
       display: inline-block;
       font-size: 16px;
       font-weight: bold;
     }
-    .header__lists {
+    &__lists {
       display: inline-block;
       float: right;
       .list {
