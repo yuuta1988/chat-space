@@ -19,7 +19,12 @@
   .chat-bottom
     .from
       %input.chat-bottom__from{:type=>:text, :name => :message ,:placeholder => " type a message"}
-      .chat-bottom__imgae
-        %i.fa.fa-image
-      .chat-bottom__box
-        %a Send
+      = form_for(@message) do |f|
+        .field
+          = f.label :name
+          %br
+          = f.text_field :name
+          .chat-bottom__imgae
+            %i.fa.fa-image
+          .chat-bottom__box
+            %a Send
