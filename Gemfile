@@ -19,6 +19,7 @@ gem 'erb2haml'
 gem 'pry-rails'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'carrierwave'
 
 
 group :development, :test do
