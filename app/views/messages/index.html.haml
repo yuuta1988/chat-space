@@ -1,3 +1,26 @@
 .wrapper
   = render 'shared/side_bar'
-  = render 'shared/chat'
+  .chat.clearfix
+    .chat-header
+      .left-header
+        .left-header__title ああああ
+        %ul.left-header__members Member
+      .right-header
+        %a.right-header__button Edit
+    .chat-messages
+      / = render 'messages'
+      .message
+        .upper-message.clearfix
+          .upper-message__user-name Sawamura
+          .upper-message__date 2018/02/00
+        .lower-message メッセージ
+    .chat-bottom
+      .from
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'chat-bottom__from', placeholder: 'type a message'
+          .form__mask
+            = f.label :picture, class: 'chat-bottom__imgae' do
+              = fa_icon 'picture-o', class: 'fa-image'
+            = f.file_field :picture, class: 'hidden'
+            = f.submit 'Send', class: 'chat-bottom__box'
+
