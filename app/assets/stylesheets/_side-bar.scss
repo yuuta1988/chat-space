@@ -1,4 +1,5 @@
 .side-bar {
+  height: 100%;
   color: #fff;
   width: 300px;
   float: left;
@@ -7,12 +8,12 @@
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
-    .header__name {
+    &__name {
       display: inline-block;
       font-size: 16px;
       font-weight: bold;
     }
-    .header__lists {
+    &__lists {
       display: inline-block;
       float: right;
       .list {
@@ -28,6 +29,7 @@
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     padding: 0 20px;
+    overflow: scroll;
     .group {
       padding: 20px 0 40px;
       a {
