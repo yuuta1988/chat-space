@@ -12,7 +12,7 @@
       width: calc(100% - 150px);
     }
     .form__mask {
-      position: relative;
+      height: 50px;
       .chat-bottom__imgae {
         background-color: white;
         float: left;
@@ -23,7 +23,7 @@
         }
       }
       .hidden {
-        visibility:hidden;
+        display: none;
       }
       .chat-bottom__box {
         float: right;
@@ -32,9 +32,6 @@
         padding: 0 20px;
         height: 50px;
         background-color: #38aef0;
-        position: absolute;
-        top: 0;
-        right: 0;
       }
     }
   }
