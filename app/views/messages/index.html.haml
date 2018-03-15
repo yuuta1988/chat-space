@@ -1,24 +1,5 @@
 .wrapper
-  .side-bar.clearfix
-    .header
-      %h3.header__name
-        = current_user.name
-      %ul.header__lists
-        %li.list
-          = link_to do
-            = fa_icon 'pencil-square-o', class: 'icon'
-        %li.list
-          = link_to edit_users_path(current_user) do
-            = fa_icon 'cog', class: 'icon'
-    .groups
-      .group
-        %a
-          .group__name ABC
-          .group__message aaa
-      .group
-        %a
-          .group__name CCCC
-          .group__message メッセージありません
+  = render 'shared/side_bar'
   .chat.clearfix
     .chat-header
       .left-header
@@ -27,20 +8,13 @@
       .right-header
         %a.right-header__button Edit
     .chat-messages
-      .message
-        .upper-message.clearfix
-          .upper-message__user-name Yuuta
-          .upper-message__date 2018/02/12
-        .lower-message aaaa
-      .message
-        .upper-message.clearfix
-          .upper-message__user-name Sawamura
-          .upper-message__date 2018/02/00
-        .lower-message メッセージ
+      = render @messages
     .chat-bottom
       .from
-        %input.chat-bottom__from{:type=>:text, :name => :message ,:placeholder => " type a message"}
-        .chat-bottom__imgae
-          %i.fa.fa-image
-        .chat-bottom__box
-          %a Send
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'chat-bottom__from', placeholder: 'type a message'
+          .form__mask
+            = f.label :picture, class: 'chat-bottom__imgae' do
+              = fa_icon 'picture-o', class: 'fa-image'
+            = f.file_field :picture, class: 'hidden'
+            = f.submit 'Send', class: 'chat-bottom__box'
