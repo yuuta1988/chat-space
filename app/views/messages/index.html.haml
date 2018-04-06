@@ -9,7 +9,8 @@
         %a.right-header__button
           = link_to "Edit", edit_group_path(current_user), class: "right-header__button-edit"
     .chat-messages
-      = render @messages
+      .chata
+        = render @messages
     .chat-bottom
       .from
         = form_for [@group, @message] do |f|

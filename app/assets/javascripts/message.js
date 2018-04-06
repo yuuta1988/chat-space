@@ -33,10 +33,13 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-messages').append(html)
       $('#message_content').val('')
-      $(".chat-bottom__box").attr('disabled', false)
-    })
+      $('.chat-bottom__box').attr('disabled', false)
+      $('.chat-messages').animate({scrollTop: $('.chata')[0].scrollHeight}, 'fast');
+      })
     .fail(function(){
       alert('error');
     })
   })
+
+
 });
