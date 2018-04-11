@@ -13,6 +13,9 @@ $(function(){
                     <div class="lower-message__content">
                       ${message.content}
                     </div>
+                    <div>
+                      <img src="${message.picture}" class="lower-meesage__picture">
+                    </div>
                   </div>
                 </div>`
     return html;
@@ -31,6 +34,7 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
+      // console.log(html);
       $('.chat-messages').append(html)
       $('#message_content').val('')
       $('.chat-bottom__box').attr('disabled', false)
