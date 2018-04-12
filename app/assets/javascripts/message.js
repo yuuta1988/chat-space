@@ -1,9 +1,6 @@
 $(function(){
   function buildHTML(message){
-<<<<<<< HEAD
     var picture = (message.picture) ? `<img src="${message.picture}" class="lower-meesage__picture">` : "";
-=======
->>>>>>> f9a6974... メッセージ機能　非同期
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
@@ -17,12 +14,9 @@ $(function(){
                     <div class="lower-message__content">
                       ${message.content}
                     </div>
-<<<<<<< HEAD
                     <div>
                       ${picture}
                     </div>
-=======
->>>>>>> f9a6974... メッセージ機能　非同期
                   </div>
                 </div>`
     return html;
@@ -43,15 +37,12 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-messages').append(html)
       $('#message_content').val('')
-<<<<<<< HEAD
       $('.hidden').val('')
       $('.chat-bottom__box').attr('disabled', false)
       $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
       })
-=======
       $(".chat-bottom__box").attr('disabled', false)
     })
->>>>>>> f9a6974... メッセージ機能　非同期
     .fail(function(){
       alert('error');
     })
