@@ -17,6 +17,8 @@ $(function(){
                   <div class="lower-meesage">
                     <div class="lower-message__content">
                       ${message.content}
+                    </div>
+                    <div>
                       ${pic}
                     </div>
                   </div>
