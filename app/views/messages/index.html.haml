@@ -3,13 +3,14 @@
   .chat.clearfix
     .chat-header
       .left-header
-        .left-header__title ああああ
+        .left-header__title Name
         %ul.left-header__members Member
       .right-header
         %a.right-header__button
           = link_to "Edit", edit_group_path(current_user), class: "right-header__button-edit"
     .chat-messages
-      = render @messages
+      .chata
+        = render @messages
     .chat-bottom
       .from
         = form_for [@group, @message] do |f|
