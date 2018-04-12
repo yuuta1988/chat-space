@@ -8,4 +8,4 @@
     - if message.content.present?
       .lower-message__content
         = message.content
-    = image_tag message.picture.url, size: "200x200" if message.picture.present?
+    = image_tag message.picture.url, :class => "lower-meesage__picture" if message.picture.present?

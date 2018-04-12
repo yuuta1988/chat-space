@@ -1,5 +1,10 @@
 $(function(){
   function buildHTML(message){
+     if (message.picture) {
+      var pic = `<img src="${message.picture}" class="lower-meesage__picture">`;
+    } else {
+      var pic = "";
+    }
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
@@ -12,9 +17,7 @@ $(function(){
                   <div class="lower-meesage">
                     <div class="lower-message__content">
                       ${message.content}
-                    </div>
-                    <div>
-                      <img src="${message.picture}" class="lower-meesage__picture">
+                      ${pic}
                     </div>
                   </div>
                 </div>`
@@ -34,9 +37,9 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      // console.log(html);
       $('.chat-messages').append(html)
       $('#message_content').val('')
+      $('.hidden').val('')
       $('.chat-bottom__box').attr('disabled', false)
       $('.chat-messages').animate({scrollTop: $('.chata')[0].scrollHeight}, 'fast');
       })
