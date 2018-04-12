@@ -43,7 +43,8 @@ $(function(){
       $('#message_content').val('')
       $('.hidden').val('')
       $('.chat-bottom__box').attr('disabled', false)
-      $('.chat-messages').animate({scrollTop: $('.chata')[0].scrollHeight}, 'fast');
+      // $('.chat-messages').animate({scrollTop: $('.chata')[0].scrollHeight}, 'fast');
+      $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
       })
     .fail(function(){
       alert('error');
