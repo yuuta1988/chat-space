@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var picture = (message.picture) ? `<img src="${message.picture}" class="lower-meesage__picture">` : "";
+    var pic = (message.picture) ? `<img src="${message.picture}" class="lower-meesage__picture">` : "";
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
@@ -15,7 +15,7 @@ $(function(){
                       ${message.content}
                     </div>
                     <div>
-                      ${picture}
+                      ${pic}
                     </div>
                   </div>
                 </div>`
@@ -41,8 +41,6 @@ $(function(){
       $('.chat-bottom__box').attr('disabled', false)
       $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
       })
-      $(".chat-bottom__box").attr('disabled', false)
-    })
     .fail(function(){
       alert('error');
     })
