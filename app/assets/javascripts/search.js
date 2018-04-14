@@ -8,5 +8,16 @@ $(function(){
       dasta: { keyword: input },
       dataType: 'json'
     })
+
+    .done(function(users){
+      $("").empty();
+      if (users.length !== 0){
+        users.forEach(function(user){
+          appendUser(user);
+        });
+      } else {
+        appendNoUser("一致するユーザーはいません")
+      }
+    })
   });
 });
