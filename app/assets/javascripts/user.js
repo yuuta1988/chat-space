@@ -1,5 +1,5 @@
 $(function(){
-  $('.chat-group-form__field--right').on('keyup', function(e){
-    e.preventDefault();
+  $('#user-search-field').on('keyup', function(){
+    var input = $("#user-search-field").val();
   })
 });
