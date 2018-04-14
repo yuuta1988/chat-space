@@ -4,7 +4,7 @@ $(function(){
 
     $.ajax({
       type: 'GET',
-      url: '/groups/new',
+      url: '/users',
       dasta: { keyword: input },
       dataType: 'json'
     })
