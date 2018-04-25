@@ -34,8 +34,6 @@ $(function(){
           var html = appendUser(user);
           $('#user-search-result').append(html);
         })
-      } else {
-        alert("一致するユーザーはいません");
       }
     })
     .fail(function(){
