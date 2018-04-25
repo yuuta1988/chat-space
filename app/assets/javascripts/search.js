@@ -8,10 +8,10 @@ $(function(){
     return html;
   }
 
-  function appnedClickUser(user_id, user_name){
-    var html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${user_id}'>
-               <input name='group[user_ids][]' type='hidden' value=${user_id}>
-               <p class='chat-group-user__name'>${user_name}</p>
+  function appnedClickUser(userId, userName){
+    var html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${userId}'>
+               <input name='group[user_ids][]' type='hidden' value=${userId}>
+               <p class='chat-group-user__name'>${userName}</p>
                <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                </div>`
     return html;
@@ -41,9 +41,9 @@ $(function(){
     });
 
     $(document).on("click", "#add_btn", function(){
-      var user_id = $(this).data('user-id')
-      var user_name = $(this).data('user-name')
-      var html = appnedClickUser(user_id, user_name)
+      var userId = $(this).data('user-id')
+      var userName = $(this).data('user-name')
+      var html = appnedClickUser(userId, userName)
       $('#chat-group-users').append(html);
       $(this).parent().remove();
     });
