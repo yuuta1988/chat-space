@@ -19,7 +19,6 @@ $(function(){
 
   $('#user-search-field').on('keyup', function(){
     var input = $('#user-search-field').val();
-
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -27,8 +26,8 @@ $(function(){
       dataType: 'json'
     })
     .done(function(users){
-      var html = appendUser(users)
       $("#user-search-result").empty();
+      var html = appendUser(users)
       if (users.length !== 0) {
         users.forEach(function(user){
           var html = appendUser(user);
