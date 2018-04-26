@@ -10,9 +10,9 @@ $(function(){
 
   function appnedClickUser(userId, userName){
     var html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${userId}'>
-               <input name='group[user_ids][]' type='hidden' value=${userId}>
-               <p class='chat-group-user__name'>${userName}</p>
-               <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+                 <input name='group[user_ids][]' type='hidden' value=${userId}>
+                 <p class='chat-group-user__name'>${userName}</p>
+                 <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                </div>`
     return html;
   }
@@ -43,7 +43,7 @@ $(function(){
       $("#user-search-result").empty();
     }
 
-    $(document).on("click", "#add_btn", function(){
+    $('#user-search-result').on('click', '#add_btn', function(){
       var userId = $(this).data('user-id')
       var userName = $(this).data('user-name')
       var html = appnedClickUser(userId, userName)
@@ -51,7 +51,7 @@ $(function(){
       $(this).parent().remove();
     });
 
-    $(document).on('click', '.chat-group-user', function(){
+    $('#chat-group-users').on('click', '.chat-group-user', function(){
       $(this).remove();
     })
   });
