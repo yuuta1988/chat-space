@@ -19,25 +19,29 @@ $(function(){
 
   $('#user-search-field').on('keyup', function(){
     var input = $('#user-search-field').val();
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: input },
-      dataType: 'json'
-    })
-    .done(function(users){
+    if (input != '' ) {
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: input },
+        dataType: 'json'
+      })
+      .done(function(users){
+        $("#user-search-result").empty();
+        var html = appendUser(users)
+        if (users.length !== 0) {
+          users.forEach(function(user){
+            var html = appendUser(user);
+            $('#user-search-result').append(html);
+          })
+        }
+      })
+      .fail(function(){
+        alert("ユーザー検索に失敗しました");
+      });
+    } else {
       $("#user-search-result").empty();
-      var html = appendUser(users)
-      if (users.length !== 0) {
-        users.forEach(function(user){
-          var html = appendUser(user);
-          $('#user-search-result').append(html);
-        })
-      }
-    })
-    .fail(function(){
-      alert("ユーザー検索に失敗しました");
-    });
+    }
 
     $(document).on("click", "#add_btn", function(){
       var userId = $(this).data('user-id')
