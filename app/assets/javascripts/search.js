@@ -1,7 +1,7 @@
 $(function(){
 
   function appendUser(user){
-    var html = `<div class="chat-group-user clearfix">
+    var html = `<div class="chat-group-user clearfix" id="chat-group-user" >
                   <p class="chat-group-user__name">${user.name}</p>
                   <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" id="add_btn" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
                 </div>`
@@ -28,7 +28,6 @@ $(function(){
       })
       .done(function(users){
         $("#user-search-result").empty();
-        var html = appendUser(users)
         if (users.length !== 0) {
           users.forEach(function(user){
             var html = appendUser(user);
@@ -38,21 +37,19 @@ $(function(){
       })
       .fail(function(){
         alert("ユーザー検索に失敗しました");
-      });
+      })
     } else {
       $("#user-search-result").empty();
     }
-
-    $('#user-search-result').on('click', '#add_btn', function(){
-      var userId = $(this).data('user-id')
-      var userName = $(this).data('user-name')
-      var html = appnedClickUser(userId, userName)
-      $('#chat-group-users').append(html);
-      $(this).parent().remove();
-    });
-
-    $('#chat-group-users').on('click', '.chat-group-user', function(){
-      $(this).remove();
-    })
   });
+  $('#user-search-result').on('click', '.chat-group-user__btn--add', function(){
+    var userId = $(this).data('user-id')
+    var userName = $(this).data('user-name')
+    var html = appnedClickUser(userId, userName)
+    $('#chat-group-users').append(html);
+    $(this).parent().remove();
+  });
+  $('#chat-group-users').on('click', '.chat-group-user', function(){
+      $(this).remove();
+  })
 });
