@@ -50,9 +50,15 @@ $(function(){
     $.ajax({
       url: location.href.json,
     })
-    .done(function(data) {
+    .done(function(json) {
+      var insertHTML = '';
+      json.messages.forEach(function(message){
+        insertHTML += buildHTML(message);
+      });
+      $('.chat-messages').html(insertHTML);
     })
     .fail(function(data) {
+      alert('自動更新に失敗しました');
     });
   } else {
     clearInterval(interval);
