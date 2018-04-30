@@ -49,26 +49,28 @@ $(function(){
     })
   })
 
-    setInterval(function() {
+    var interval = setInterval(function() {
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
     $.ajax({
-      url: location.href.json,
+      type: 'GET',
+      url: location.href,
+      dataType: 'json'
     })
-    .done(function(json) {
+    .done(function(data) {
       var id = $('.message').data('messageId');
       var insertHTML = '';
-      json.messages.forEach(function(message){
-        if (message.id > id){
-        insertHTML += buildHTML(message);
+      data.messages.forEach(function(message) {
+        if (message.id > id ) {
+          insertHTML += buildHTML(message);
         }
       });
-      $('.chat-messages').html(insertHTML);
+      $('.chat-messages').apend(insertHTML);
     })
     .fail(function(data) {
-      alert('自動更新に失敗しました');
+      // alert('自動更新に失敗しました');
     });
   } else {
     clearInterval(interval);
-   } , 5000 );
-
+   }} , 5000 );
 
 });
