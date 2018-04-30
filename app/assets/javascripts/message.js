@@ -54,9 +54,12 @@ $(function(){
       url: location.href.json,
     })
     .done(function(json) {
+      var id = $('.message').data('messageId');
       var insertHTML = '';
       json.messages.forEach(function(message){
+        if (message.id > id){
         insertHTML += buildHTML(message);
+        }
       });
       $('.chat-messages').html(insertHTML);
     })
