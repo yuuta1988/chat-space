@@ -1,10 +1,10 @@
 $(function(){
   function buildHTML(message){
-    var picture = (message.picture) ? `<img src="${message.picture}" class="lower-meesage__picture">` : "";
-    if (message.picture.url){
-      picture = `<img src="${message.picture.url}">`;
+    var insertPicture = '';
+    if (message.picture) {
+      insertPicture = `<img src="${message.picture}">`;
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}"}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.user_name}
@@ -18,7 +18,7 @@ $(function(){
                       ${message.content}
                     </div>
                     <div>
-                      ${picture}
+                      ${insertPicture}
                     </div>
                   </div>
                 </div>`
@@ -49,28 +49,29 @@ $(function(){
     })
   })
 
+    // 自動更新機能
     var interval = setInterval(function() {
-      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
     $.ajax({
       type: 'GET',
-      url: location.href,
+      url: location.href.json,
       dataType: 'json'
     })
-    .done(function(data) {
-      var id = $('.message').data('messageId');
+    .done(function(json) {
+      var id = $('.chata .message:last-child').data('messageId');
       var insertHTML = '';
-      data.messages.forEach(function(message) {
+      json.messages.forEach(function(message) {
         if (message.id > id ) {
           insertHTML += buildHTML(message);
         }
       });
-      $('.chat-messages').apend(insertHTML);
+      $('.chat-messages').append(insertHTML);
     })
-    .fail(function(data) {
-      // alert('自動更新に失敗しました');
+    .fail(function(json) {
+      alert('自動更新に失敗しました');
     });
-  } else {
-    clearInterval(interval);
-   }} , 5000 );
+    } else {
+      clearInterval(interval);
+    }} , 5000 );
 
 });
