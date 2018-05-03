@@ -38,7 +38,7 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chata').append(html)
+      $('.chat-messages').append(html)
       $('#message_content').val('')
       $('.hidden').val('')
       $('.chat-bottom__box').attr('disabled', false)
@@ -63,7 +63,7 @@ $(function(){
     if (data.length == 0) return false
     data.forEach(function(msg){
       var html = buildHTML(msg)
-    $('.chata').append(html);
+    $('.chat-messages').append(html);
     $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
     })
   })
