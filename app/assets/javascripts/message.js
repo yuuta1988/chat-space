@@ -4,7 +4,7 @@ $(function(){
     if (message.picture) {
       insertPicture = `<img src="${message.picture}">`;
     }
-    var html = `<div class="message" data-message-id="${message.id}"}">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.user_name}
@@ -38,7 +38,7 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chat-messages').append(html)
+      $('.chata').append(html)
       $('#message_content').val('')
       $('.hidden').val('')
       $('.chat-bottom__box').attr('disabled', false)
@@ -49,29 +49,28 @@ $(function(){
     })
   })
 
-    // 自動更新機能
-    var interval = setInterval(function() {
-    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-    $.ajax({
-      type: 'GET',
-      url: location.href.json,
-      dataType: 'json'
-    })
-    .done(function(json) {
-      var id = $('.chata .message:last-child').data('messageId');
-      var insertHTML = '';
-      json.messages.forEach(function(message) {
-        if (message.id > id ) {
-          insertHTML += buildHTML(message);
-        }
-      });
-      $('.chat-messages').append(insertHTML);
-    })
-    .fail(function(json) {
-      alert('自動更新に失敗しました');
+  var interval = setInterval(function() {
+  if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+  $.ajax({
+    type: 'GET',
+    url: location.href.json,
+    dataType: 'json'
+  })
+  .done(function(json) {
+    var id = $('.chata .message:last-child').data('messageId');
+    var insertHTML = '';
+    json.messages.forEach(function(message) {
+      if (message.id > id ) {
+        insertHTML += buildHTML(message);
+      }
     });
-    } else {
-      clearInterval(interval);
-    }} , 5000 );
-
+    $('.chata').append(insertHTML);
+    $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
+  })
+  .fail(function(json) {
+    alert('自動更新に失敗しました');
+  });
+  } else {
+    clearInterval(interval);
+  }} , 5000 );
 });
