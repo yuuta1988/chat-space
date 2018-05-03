@@ -50,24 +50,24 @@ $(function(){
   })
 
   setInterval(function() {
+    var newMsgId = $('.message').last().attr('data-message-id')
+    var url = $('#new_message').attr('action')
     $.ajax({
       type: 'GET',
-      url: location.href.json,
+      url: url,
+      data: { id: newMsgId },
       dataType: 'json'
     })
-    .done(function(json) {
-      var id = $('.chata .message:last-child').data('messageId');
-      var insertHTML = '';
-      json.messages.forEach(function(message) {
-        if (message.id > id ) {
-          insertHTML += buildHTML(message);
-        }
-      });
-      $('.chata').append(insertHTML);
-      $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
+    .done(function(data) {
+      if (data.length == 0) return false
+      data.forEach(function(msg){
+        var html = buildHTML(msg)
+        $('.chata').append(html);
+        $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
+      })
     })
     .fail(function(json) {
-      // alert('自動更新に失敗しました');
+      alert('自動更新に失敗しました');
     });
   } , 5000 );
 });

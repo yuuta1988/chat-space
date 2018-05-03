@@ -1,8 +1,7 @@
-json.messages @messages.each do |message|
-  json.user_name  message.user.name
-  json.data  message.created_at.time.to_s(:datetime)
-  json.content  message.content
-  json.picture message.picture.url
-  json.id    message.id
+json.array! @newmsgs do |newmsg|
+  json.user_name newmsg.user.name
+  json.data newmsg.created_at.time.to_s(:datetime)
+  json.content newmsg.content
+  json.id newmsg.id
+  json.picture newmsg.picture.url
 end
-
