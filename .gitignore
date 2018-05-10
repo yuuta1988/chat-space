@@ -18,3 +18,7 @@
 
 # public フォルダは含めない
 /public
+
+config/secrets.yml
+
+.secrets.yml
