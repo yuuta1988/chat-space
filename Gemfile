@@ -21,7 +21,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog'
+gem 'fog', '~> 1.41.0'
 
 
 group :development, :test do
